@@ -1,2 +1,2 @@
 # mancala
-Mancala game in C#
+Multiplayer Mancala in C#
