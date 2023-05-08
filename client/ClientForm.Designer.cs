@@ -131,6 +131,7 @@
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(100, 23);
             usernameTextBox.TabIndex = 0;
+            usernameTextBox.Text = "geo";
             // 
             // passwordTextBox
             // 
@@ -139,6 +140,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(100, 23);
             passwordTextBox.TabIndex = 0;
+            passwordTextBox.Text = "geo";
             // 
             // label3
             // 
