@@ -54,7 +54,7 @@
             roomPanel = new Panel();
             clearSelectedButton = new Button();
             usersListBox = new ListBox();
-            panel1 = new Panel();
+            gamePanel = new Panel();
             sendMessageButton = new Button();
             messageRichTextBox = new RichTextBox();
             chatRichTextBox = new RichTextBox();
@@ -308,7 +308,7 @@
             roomPanel.BackColor = Color.White;
             roomPanel.Controls.Add(clearSelectedButton);
             roomPanel.Controls.Add(usersListBox);
-            roomPanel.Controls.Add(panel1);
+            roomPanel.Controls.Add(gamePanel);
             roomPanel.Controls.Add(sendMessageButton);
             roomPanel.Controls.Add(messageRichTextBox);
             roomPanel.Controls.Add(chatRichTextBox);
@@ -340,13 +340,13 @@
             usersListBox.Size = new Size(190, 619);
             usersListBox.TabIndex = 0;
             // 
-            // panel1
+            // gamePanel
             // 
-            panel1.BackColor = Color.FromArgb(255, 255, 128);
-            panel1.Location = new Point(628, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(405, 657);
-            panel1.TabIndex = 0;
+            gamePanel.BackColor = Color.FromArgb(255, 255, 128);
+            gamePanel.Location = new Point(628, 12);
+            gamePanel.Name = "gamePanel";
+            gamePanel.Size = new Size(405, 657);
+            gamePanel.TabIndex = 0;
             // 
             // sendMessageButton
             // 
@@ -452,7 +452,7 @@
         private Button joinRoomButton;
         private Button createRoomButton;
         private Panel roomPanel;
-        private Panel panel1;
+        private Panel gamePanel;
         private Button sendMessageButton;
         private RichTextBox messageRichTextBox;
         private RichTextBox chatRichTextBox;
