@@ -15,5 +15,8 @@
         public const string SEND_PUBLIC_MESSAGE = "SEND_PUBLIC_MESSAGE";
         public const string CHAT_UPDATED = "CHAT_UPDATED";
         public const string PLAYERS_UPDATED = "PLAYERS_UPDATED";
+        public const string GAME_STATE_UPDATED = "GAME_STATE_UPDATED";
+        public const string GAME_STARTED = "GAME_STARTED";
+        public const string GAME_FINISHED = "GAME_FINISHED";
     }
 }

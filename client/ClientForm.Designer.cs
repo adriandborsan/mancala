@@ -319,7 +319,7 @@
             roomPanel.Dock = DockStyle.Fill;
             roomPanel.Location = new Point(251, 0);
             roomPanel.Name = "roomPanel";
-            roomPanel.Size = new Size(1045, 704);
+            roomPanel.Size = new Size(1400, 704);
             roomPanel.TabIndex = 0;
             roomPanel.Visible = false;
             // 
@@ -347,9 +347,9 @@
             gamePanel.BackColor = Color.FromArgb(255, 255, 128);
             gamePanel.Location = new Point(628, 12);
             gamePanel.Name = "gamePanel";
-            gamePanel.Size = new Size(405, 657);
+            gamePanel.Size = new Size(700, 700);
             gamePanel.TabIndex = 0;
-            GameForm gameForm = new GameForm() { TopLevel = false };
+            GameForm gameForm = new GameForm(this) { TopLevel = false };
             gameForm.FormBorderStyle = FormBorderStyle.None;
             gamePanel.Controls.Add(gameForm);
             gameForm.Show();
@@ -414,7 +414,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1296, 704);
+            ClientSize = new Size(1600, 704);
             Controls.Add(connectPanel);
             Controls.Add(loginPanel);
             Controls.Add(homePanel);
