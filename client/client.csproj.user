@@ -4,5 +4,8 @@
     <Compile Update="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

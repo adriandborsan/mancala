@@ -212,7 +212,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(100, 23);
             passwordTextBox.TabIndex = 9;
-            passwordTextBox.Text = "1234";
+            passwordTextBox.Text = "hus4l1337";
             // 
             // ServerForm
             // 
