@@ -129,5 +129,15 @@ namespace client
 
             _disposed = true;
         }
+
+        internal void SendPressedPocket(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ReceiveGameState(int[,] sender, bool sender2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

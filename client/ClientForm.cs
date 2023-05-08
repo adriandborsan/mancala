@@ -109,5 +109,15 @@ namespace client
         {
             clientController.Dispose();
         }
+
+        public void SendPressedPocket(int sender)
+        {
+            clientController.SendPressedPocket(sender);
+        }
+
+        public void ReceiveGameState(int[,] sender, bool sender2)
+        {
+            clientController.ReceiveGameState(sender, sender2);
+        }
     }
-}
+}  

@@ -54,7 +54,7 @@
             roomPanel = new Panel();
             clearSelectedButton = new Button();
             usersListBox = new ListBox();
-            panel1 = new Panel();
+            gamePanel = new Panel();
             sendMessageButton = new Button();
             messageRichTextBox = new RichTextBox();
             chatRichTextBox = new RichTextBox();
@@ -131,6 +131,7 @@
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(100, 23);
             usernameTextBox.TabIndex = 0;
+            usernameTextBox.Text = "geo";
             // 
             // passwordTextBox
             // 
@@ -139,6 +140,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(100, 23);
             passwordTextBox.TabIndex = 0;
+            passwordTextBox.Text = "geo";
             // 
             // label3
             // 
@@ -308,7 +310,7 @@
             roomPanel.BackColor = Color.White;
             roomPanel.Controls.Add(clearSelectedButton);
             roomPanel.Controls.Add(usersListBox);
-            roomPanel.Controls.Add(panel1);
+            roomPanel.Controls.Add(gamePanel);
             roomPanel.Controls.Add(sendMessageButton);
             roomPanel.Controls.Add(messageRichTextBox);
             roomPanel.Controls.Add(chatRichTextBox);
@@ -317,7 +319,7 @@
             roomPanel.Dock = DockStyle.Fill;
             roomPanel.Location = new Point(251, 0);
             roomPanel.Name = "roomPanel";
-            roomPanel.Size = new Size(1045, 704);
+            roomPanel.Size = new Size(1400, 704);
             roomPanel.TabIndex = 0;
             roomPanel.Visible = false;
             // 
@@ -340,13 +342,17 @@
             usersListBox.Size = new Size(190, 619);
             usersListBox.TabIndex = 0;
             // 
-            // panel1
+            // gamePanel
             // 
-            panel1.BackColor = Color.FromArgb(255, 255, 128);
-            panel1.Location = new Point(628, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(405, 657);
-            panel1.TabIndex = 0;
+            gamePanel.BackColor = Color.FromArgb(255, 255, 128);
+            gamePanel.Location = new Point(628, 12);
+            gamePanel.Name = "gamePanel";
+            gamePanel.Size = new Size(700, 700);
+            gamePanel.TabIndex = 0;
+            GameForm gameForm = new GameForm(this) { TopLevel = false };
+            gameForm.FormBorderStyle = FormBorderStyle.None;
+            gamePanel.Controls.Add(gameForm);
+            gameForm.Show();
             // 
             // sendMessageButton
             // 
@@ -408,7 +414,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1296, 704);
+            ClientSize = new Size(1600, 704);
             Controls.Add(connectPanel);
             Controls.Add(loginPanel);
             Controls.Add(homePanel);
@@ -452,7 +458,7 @@
         private Button joinRoomButton;
         private Button createRoomButton;
         private Panel roomPanel;
-        private Panel panel1;
+        private Panel gamePanel;
         private Button sendMessageButton;
         private RichTextBox messageRichTextBox;
         private RichTextBox chatRichTextBox;
