@@ -349,6 +349,10 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(405, 657);
             gamePanel.TabIndex = 0;
+            GameForm gameForm = new GameForm() { TopLevel = false };
+            gameForm.FormBorderStyle = FormBorderStyle.None;
+            gamePanel.Controls.Add(gameForm);
+            gameForm.Show();
             // 
             // sendMessageButton
             // 
