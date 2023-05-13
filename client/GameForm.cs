@@ -100,12 +100,7 @@ namespace client
             updatePocketNumbers();
         }
 
-        public void GameStarted(string name)
-        {
-            gameInProgress = true;
-            gameStatusLabel.Text = GAME_IN_PROGRESS;
-        }
-
+     
         private void player1Pocket1_Click(object sender, EventArgs e)
         {
             SendPressedPocket(0);
@@ -169,5 +164,13 @@ namespace client
                 gameStatusLabel.Text = GAME_LOST;
             }
         }
+
+
+        public void GameStarted()
+        {
+            gameInProgress = true;
+            gameStatusLabel.Text = GAME_IN_PROGRESS;
+        }
+
     }
 }

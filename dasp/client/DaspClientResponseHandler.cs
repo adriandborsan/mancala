@@ -10,6 +10,7 @@ namespace dasp
         public event PlayersUpdatedHandler PlayersUpdated;
         public event GameUpdatedHandler GameUpdated;
         public event AddMessageHandler AddMessage;
+        public event GameStartedHandler GameStarted;
         private readonly Dictionary<string, Func<DaspRequest, DaspConnection, Task>> commandHandlers;
         public DaspClientResponseHandler(DaspClient client, Func<string, Task> sendLog)
         {
@@ -25,11 +26,15 @@ namespace dasp
                 { DaspConstants.LEAVE_ROOM, HandleLeaveRoom },
                 { DaspConstants.CHAT_UPDATED, HandleChatUpdated },
                 { DaspConstants.PLAYERS_UPDATED, HandlePlayersUpdated },
-                { DaspConstants.GAME_STATE_UPDATED, HandleGameUpdated }
+                { DaspConstants.GAME_STATE_UPDATED, HandleGameUpdated },
+                { DaspConstants.GAME_STARTED, HandleGameStarted }
             };
         }
 
-     
+        private async Task HandleGameStarted(DaspRequest arg1, DaspConnection arg2)
+        {
+            GameStarted();
+        }
 
         public async Task HandleIncomingResponse(DaspRequest daspRequest, DaspConnection daspConnection)
         {

@@ -7,6 +7,7 @@ namespace dasp
         public delegate void RoomsUpdatedHandler(List<ChatRoomInfo> updatedChatRooms);
         public delegate void PlayersUpdatedHandler(List<string> updatedPlayers);
         public delegate void AddMessageHandler(string message);
+        public delegate void GameStartedHandler();
         public delegate void GameUpdatedHandler(int[,] sender, bool sender2, int sender3);
         public TaskCompletionSource<bool> LoginTcs { get; set; }
         public TaskCompletionSource<bool> LeaveRoomTcs { get; set; }
@@ -20,7 +21,11 @@ namespace dasp
             add => _responseHandler.GameUpdated += value;
             remove => _responseHandler.GameUpdated -= value;
         }
-
+        public event GameStartedHandler GameStarted
+        {
+            add => _responseHandler.GameStarted += value;
+            remove => _responseHandler.GameStarted -= value;
+        }
         public event RoomsUpdatedHandler RoomsUpdated
         {
             add => _responseHandler.RoomsUpdated += value;
@@ -50,9 +55,9 @@ namespace dasp
         public Task SendPrivateMessage(string recipient, string message) => _messageSender.SendPrivateMessage(recipient, message);
         public Task SendPublicMessage(string message) => _messageSender.SendPublicMessage(message);
 
-        public void StartGame() => _messageSender.StartGame("");
+        public void StartGame() => _messageSender.StartGame();
 
-        public void StartGame(string v) => _messageSender.StartGame(v);
+      
 
         public void SendPressedPocket(int v) => _messageSender.SendPressedPocket(v);
     }

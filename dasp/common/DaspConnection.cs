@@ -2,12 +2,22 @@
 using System.Text;
 namespace dasp
 {
+    public enum PlayerState
+    {
+        SPECTATING,
+        CURRENTLY_MOVING,
+        WAITING_TO_MOVE
+    }
     public class DaspConnection
     {
         private readonly Socket _socket;
         private readonly Func<DaspRequest, DaspConnection, Task> _onRequestReceived;
         private readonly Func<string, Task> _logAsync;
+        public PlayerState PlayerState { get; set; }= PlayerState.SPECTATING;
+        public int GameEndStatus { get; set; }
+        public ChatRoom ChatRoom{ get; set; }
         public string Username { get; set; }
+
         public DaspConnection(string address, int port, Func<DaspRequest, DaspConnection, Task> onRequestReceived, Func<string, Task> logAsync)
         {
             _socket = new Socket(SocketType.Stream, ProtocolType.Tcp);

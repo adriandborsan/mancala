@@ -44,6 +44,8 @@
         public int[,] GameStateMatrix { get; set; }
         public bool PlayerTurnInformation { get; set; }
         public int GameEndStatus { get; set; }
+
+
     }
 
     public class DaspBodyBuilder

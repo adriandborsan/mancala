@@ -24,6 +24,8 @@ namespace client
                 daspClient.RoomsUpdated += RoomsUpdated;
                 daspClient.PlayersUpdated += PlayersUpdated;
                 daspClient.AddMessage += AddMessage;
+                daspClient.GameUpdated += GameUpdated;
+                daspClient.GameStarted += GameStarted;
                 clientForm.RunOnUiThread(() => clientForm.SwitchToLogin(), _cancellationTokenSource.Token);
                 SendLog("Connected");
             }
@@ -32,6 +34,9 @@ namespace client
                 SendLog($"something went wrong {ex}");
             }
         }
+
+
+
         private void RoomsUpdated(List<ChatRoomInfo> updatedChatRooms)
         {
             clientForm.RunOnUiThread(() => clientForm.RefreshRoomList(updatedChatRooms), _cancellationTokenSource.Token);
@@ -44,7 +49,7 @@ namespace client
         }
         private void AddMessage(string message)
         {
-            clientForm.RunOnUiThread(() => clientForm.AddMessage(message+"\n"), _cancellationTokenSource.Token);
+            clientForm.RunOnUiThread(() => clientForm.AddMessage(message + "\n"), _cancellationTokenSource.Token);
             SendLog("AddMessage");
         }
         internal async Task Login(string username, string password)
@@ -62,7 +67,7 @@ namespace client
         }
         public async Task SendLog(string message)
         {
-            clientForm.RunOnUiThread(() => clientForm.AddLog(message+"\n"), _cancellationTokenSource.Token);
+            clientForm.RunOnUiThread(() => clientForm.AddLog(message + "\n"), _cancellationTokenSource.Token);
         }
         internal async Task JoinRoom(ChatRoomInfo? chatRoom)
         {
@@ -132,22 +137,20 @@ namespace client
             daspClient.SendPressedPocket(v);
         }
 
-        public void ReceiveGameState(int[,] sender, bool sender2, int sender3)
+        internal void StartGame()
         {
-            clientForm.RunOnUiThread(() => clientForm.ReceiveGameState(sender, sender2, sender3), _cancellationTokenSource.Token);
-            
+            daspClient.StartGame();
         }
 
-        internal void StartGame(object selectedItem)
+        private void GameStarted()
         {
-            if (selectedItem == null)
-            {
-                daspClient.StartGame();
-            }
-            else
-            {
-                daspClient.StartGame(selectedItem.ToString());
-            }
+            clientForm.RunOnUiThread(() => clientForm.GameStarted(), _cancellationTokenSource.Token);
+        }
+
+        private void GameUpdated(int[,] sender, bool sender2, int sender3)
+        {
+            clientForm.RunOnUiThread(() => clientForm.ReceiveGameState(sender, sender2, sender3), _cancellationTokenSource.Token);
+
         }
     }
 }

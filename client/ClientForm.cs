@@ -131,12 +131,13 @@ namespace client
 
         private void StartGameButton_Click(object sender, EventArgs e)
         {
-            clientController.StartGame(usersListBox.SelectedItem);
+            clientController.StartGame();
         }
 
-        public void GameStarted(string name)
+        public void GameStarted()
         {
-            gameForm.GameStarted(name);
+            //name e al doile ajucator, si primul din userlistbox e primul jcuator sa stiie toti spectatorii
+            gameForm.GameStarted();
             startGameButton.Enabled = false;
         }
     }
