@@ -349,7 +349,7 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(700, 700);
             gamePanel.TabIndex = 0;
-            GameForm gameForm = new GameForm(this) { TopLevel = false };
+            gameForm = new GameForm(this) { TopLevel = false };
             gameForm.FormBorderStyle = FormBorderStyle.None;
             gamePanel.Controls.Add(gameForm);
             gameForm.Show();
@@ -471,5 +471,6 @@
         private ListBox usersListBox;
         private Button clearSelectedButton;
         private RichTextBox logRichTextBox;
+        private GameForm gameForm;
     }
 }

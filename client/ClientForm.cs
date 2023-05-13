@@ -85,6 +85,14 @@ namespace client
         {
             usersListBox.Items.Clear();
             usersListBox.Items.AddRange(updatedUsers.ToArray());
+            if (labelCurrentPlayer.Text == updatedUsers[0])
+            {
+                startGameButton.Visible = true;
+            }
+            else
+            {
+                startGameButton.Visible = false;
+            }
         }
         private void StartGameButton_Click(object sender, EventArgs e)
         {
@@ -115,9 +123,24 @@ namespace client
             clientController.SendPressedPocket(sender);
         }
 
-        public void ReceiveGameState(int[,] sender, bool sender2)
+        public void ReceiveGameState(int[,] sender, bool sender2, int sender3)
         {
-            clientController.ReceiveGameState(sender, sender2);
+            gameForm.ReceiveGameState(sender, sender2, sender3);
+            if (sender3 != -1)
+            {
+                startGameButton.Enabled = true;
+            }
+        }
+
+        private void startGameButton_Click_1(object sender, EventArgs e)
+        {
+            clientController.StartGame(usersListBox.SelectedItem);
+        }
+
+        public void GameStarted(string name)
+        {
+            gameForm.GameStarted(name);
+            startGameButton.Enabled = false;
         }
     }
 }  
