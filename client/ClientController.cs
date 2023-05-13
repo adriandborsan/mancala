@@ -1,4 +1,6 @@
 ﻿using dasp;
+using System.Windows.Forms;
+
 namespace client
 {
     internal class ClientController : IDisposable
@@ -30,7 +32,7 @@ namespace client
                 SendLog($"something went wrong {ex}");
             }
         }
-        private void RoomsUpdated(List<ChatRoom> updatedChatRooms)
+        private void RoomsUpdated(List<ChatRoomInfo> updatedChatRooms)
         {
             clientForm.RunOnUiThread(() => clientForm.RefreshRoomList(updatedChatRooms), _cancellationTokenSource.Token);
             SendLog("RoomsUpdated");
@@ -62,7 +64,7 @@ namespace client
         {
             clientForm.RunOnUiThread(() => clientForm.AddLog(message+"\n"), _cancellationTokenSource.Token);
         }
-        internal async Task JoinRoom(ChatRoom? chatRoom)
+        internal async Task JoinRoom(ChatRoomInfo? chatRoom)
         {
             if (chatRoom != null && await daspClient.JoinRoom(chatRoom.Id))
             {
@@ -100,11 +102,6 @@ namespace client
             }
         }
 
-        internal void Start(object selectedItem)
-        {
-            
-        }
-
         public void Dispose()
         {
             Dispose(true);
@@ -132,17 +129,25 @@ namespace client
 
         internal void SendPressedPocket(int v)
         {
-            throw new NotImplementedException();
+            daspClient.SendPressedPocket(v);
         }
 
-        internal void ReceiveGameState(int[,] sender, bool sender2, int sender3)
+        public void ReceiveGameState(int[,] sender, bool sender2, int sender3)
         {
-            throw new NotImplementedException();
+            clientForm.RunOnUiThread(() => clientForm.ReceiveGameState(sender, sender2, sender3), _cancellationTokenSource.Token);
+            
         }
 
-        internal void StartGame()
+        internal void StartGame(object selectedItem)
         {
-            throw new NotImplementedException();
+            if (selectedItem == null)
+            {
+                daspClient.StartGame();
+            }
+            else
+            {
+                daspClient.StartGame(selectedItem.ToString());
+            }
         }
     }
 }

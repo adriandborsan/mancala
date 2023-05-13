@@ -50,7 +50,7 @@ namespace client
             homePanel.Visible = true;
             homePanel.BringToFront();
         }
-        public void RefreshRoomList(List<ChatRoom> updatedChatRooms)
+        public void RefreshRoomList(List<ChatRoomInfo> updatedChatRooms)
         {
             chatRoomBindingSource.DataSource = updatedChatRooms;
         }
@@ -58,7 +58,7 @@ namespace client
         {
             if (chatRoomDataGridView.SelectedRows.Count > 0)
             {
-                clientController.JoinRoom(chatRoomDataGridView.SelectedRows[0].DataBoundItem as ChatRoom);
+                clientController.JoinRoom(chatRoomDataGridView.SelectedRows[0].DataBoundItem as ChatRoomInfo);
             }
         }
         private void CreateRoomButton_Click(object sender, EventArgs e)
@@ -94,10 +94,7 @@ namespace client
                 startGameButton.Visible = false;
             }
         }
-        private void StartGameButton_Click(object sender, EventArgs e)
-        {
-            clientController.Start(usersListBox.SelectedItem);
-        }
+      
         private void SendMessageButton_Click(object sender, EventArgs e)
         {
             string message = messageRichTextBox.Text;
@@ -132,7 +129,7 @@ namespace client
             }
         }
 
-        private void startGameButton_Click_1(object sender, EventArgs e)
+        private void StartGameButton_Click(object sender, EventArgs e)
         {
             clientController.StartGame(usersListBox.SelectedItem);
         }
@@ -143,4 +140,4 @@ namespace client
             startGameButton.Enabled = false;
         }
     }
-}  
+}

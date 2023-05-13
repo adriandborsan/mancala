@@ -61,6 +61,7 @@
             startGameButton = new Button();
             leaveButton = new Button();
             logRichTextBox = new RichTextBox();
+            labelCurrentPlayer = new Label();
             loginPanel.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             connectPanel.SuspendLayout();
@@ -78,7 +79,7 @@
             loginPanel.Dock = DockStyle.Fill;
             loginPanel.Location = new Point(251, 0);
             loginPanel.Name = "loginPanel";
-            loginPanel.Size = new Size(1045, 704);
+            loginPanel.Size = new Size(1349, 704);
             loginPanel.TabIndex = 0;
             loginPanel.Visible = false;
             // 
@@ -169,7 +170,7 @@
             connectPanel.Dock = DockStyle.Fill;
             connectPanel.Location = new Point(251, 0);
             connectPanel.Name = "connectPanel";
-            connectPanel.Size = new Size(1045, 704);
+            connectPanel.Size = new Size(1349, 704);
             connectPanel.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -250,7 +251,7 @@
             homePanel.Dock = DockStyle.Fill;
             homePanel.Location = new Point(251, 0);
             homePanel.Name = "homePanel";
-            homePanel.Size = new Size(1045, 704);
+            homePanel.Size = new Size(1349, 704);
             homePanel.TabIndex = 0;
             homePanel.Visible = false;
             // 
@@ -261,7 +262,7 @@
             chatRoomDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             chatRoomDataGridView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, numberOfPlayersDataGridViewTextBoxColumn });
             chatRoomDataGridView.DataSource = chatRoomBindingSource;
-            chatRoomDataGridView.Location = new Point(6, 64);
+            chatRoomDataGridView.Location = new Point(158, 64);
             chatRoomDataGridView.Name = "chatRoomDataGridView";
             chatRoomDataGridView.RowTemplate.Height = 25;
             chatRoomDataGridView.Size = new Size(623, 628);
@@ -281,12 +282,12 @@
             // 
             // chatRoomBindingSource
             // 
-            chatRoomBindingSource.DataSource = typeof(dasp.ChatRoom);
+            chatRoomBindingSource.DataSource = typeof(dasp.ChatRoomInfo);
             // 
             // createRoomButton
             // 
             createRoomButton.Anchor = AnchorStyles.None;
-            createRoomButton.Location = new Point(162, 15);
+            createRoomButton.Location = new Point(314, 15);
             createRoomButton.Name = "createRoomButton";
             createRoomButton.Size = new Size(104, 23);
             createRoomButton.TabIndex = 0;
@@ -297,7 +298,7 @@
             // joinRoomButton
             // 
             joinRoomButton.Anchor = AnchorStyles.None;
-            joinRoomButton.Location = new Point(393, 15);
+            joinRoomButton.Location = new Point(545, 15);
             joinRoomButton.Name = "joinRoomButton";
             joinRoomButton.Size = new Size(120, 23);
             joinRoomButton.TabIndex = 0;
@@ -308,6 +309,7 @@
             // roomPanel
             // 
             roomPanel.BackColor = Color.White;
+            roomPanel.Controls.Add(labelCurrentPlayer);
             roomPanel.Controls.Add(clearSelectedButton);
             roomPanel.Controls.Add(usersListBox);
             roomPanel.Controls.Add(gamePanel);
@@ -319,7 +321,7 @@
             roomPanel.Dock = DockStyle.Fill;
             roomPanel.Location = new Point(251, 0);
             roomPanel.Name = "roomPanel";
-            roomPanel.Size = new Size(1400, 704);
+            roomPanel.Size = new Size(1349, 704);
             roomPanel.TabIndex = 0;
             roomPanel.Visible = false;
             // 
@@ -349,10 +351,6 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(700, 700);
             gamePanel.TabIndex = 0;
-            gameForm = new GameForm(this) { TopLevel = false };
-            gameForm.FormBorderStyle = FormBorderStyle.None;
-            gamePanel.Controls.Add(gameForm);
-            gameForm.Show();
             // 
             // sendMessageButton
             // 
@@ -410,6 +408,15 @@
             logRichTextBox.TabIndex = 0;
             logRichTextBox.Text = "";
             // 
+            // labelCurrentPlayer
+            // 
+            labelCurrentPlayer.AutoSize = true;
+            labelCurrentPlayer.Location = new Point(424, 16);
+            labelCurrentPlayer.Name = "labelCurrentPlayer";
+            labelCurrentPlayer.Size = new Size(38, 15);
+            labelCurrentPlayer.TabIndex = 1;
+            labelCurrentPlayer.Text = "label5";
+            // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,6 +440,7 @@
             ((System.ComponentModel.ISupportInitialize)chatRoomDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)chatRoomBindingSource).EndInit();
             roomPanel.ResumeLayout(false);
+            roomPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -472,5 +480,6 @@
         private Button clearSelectedButton;
         private RichTextBox logRichTextBox;
         private GameForm gameForm;
+        private Label labelCurrentPlayer;
     }
 }

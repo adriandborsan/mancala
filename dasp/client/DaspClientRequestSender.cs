@@ -83,5 +83,21 @@ namespace dasp
             DaspRequest daspRequest = new(daspHeader, daspBody);
             _daspConnection.Send(daspRequest);
         }
+
+        internal void StartGame(string v)
+        {
+            DaspHeader daspHeader = new DaspHeader(DaspConstants.GAME_STARTED);
+            DaspBody daspBody = new DaspBodyBuilder().WithUsername(v).Build();
+            DaspRequest daspRequest = new(daspHeader, daspBody);
+            _daspConnection.Send(daspRequest);
+        }
+
+        internal void SendPressedPocket(int v)
+        {
+            DaspHeader daspHeader = new DaspHeader(DaspConstants.GAME_STARTED);
+            DaspBody daspBody = new DaspBodyBuilder().WithPocket(v).Build();
+            DaspRequest daspRequest = new(daspHeader, daspBody);
+            _daspConnection.Send(daspRequest);
+        }
     }
 }

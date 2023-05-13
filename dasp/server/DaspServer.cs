@@ -8,7 +8,6 @@ namespace dasp
         private readonly Dictionary<int, List<DaspConnection>> _chatRooms;
         private readonly List<DaspConnection> _connections;
         private readonly Func<string, Task> _sendLog;
-        private readonly Dictionary<string, string> users;
         private int nextRoomId;
         private readonly DaspDatabase daspDatabase;
         private readonly Dictionary<string, Func<DaspRequest, DaspConnection, Task>> commandHandlers;
@@ -16,7 +15,6 @@ namespace dasp
         {
             _connections = new List<DaspConnection>();
             _chatRooms = new Dictionary<int, List<DaspConnection>>();
-            users = new Dictionary<string, string>();
             nextRoomId = 1;
             daspDatabase = new DaspDatabase(address, database, username, password);
             _daspServerConnection = new DaspServerConnection(port, HandleClientAsync, sendLog);
@@ -159,15 +157,15 @@ namespace dasp
             UpdateChatRooms();
         }
 
-        private static List<ChatRoom> GetChatRoomsFromDictionary(Dictionary<int, List<DaspConnection>> chatRooms)
+        private static List<ChatRoomInfo> GetChatRoomsFromDictionary(Dictionary<int, List<DaspConnection>> chatRooms)
         {
-            return chatRooms.Select(kvp => new ChatRoom(kvp.Key, kvp.Value.Count))
+            return chatRooms.Select(kvp => new ChatRoomInfo(kvp.Key, kvp.Value.Count))
                               .ToList();
         }
 
         private void UpdateChatRooms()
         {
-            List<ChatRoom> chatRooms = GetChatRoomsFromDictionary(_chatRooms);
+            List<ChatRoomInfo> chatRooms = GetChatRoomsFromDictionary(_chatRooms);
             DaspRequest daspRequest = new(new DaspHeader(DaspConstants.ROOMS_UPDATED), new DaspBodyBuilder().WithRooms(chatRooms).Build());
 
             foreach (DaspConnection daspConnection in _connections)

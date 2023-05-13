@@ -36,9 +36,14 @@
         public string Recipient { get; set; }
         public string Message { get; set; }
         public List<string> Players { get; set; }
-        public List<ChatRoom> Rooms { get; set; }
+        public List<ChatRoomInfo> Rooms { get; set; }
         public string Reason { get; set; }
         public string Status { get; set; }
+        public int Pocket { get; set; }
+
+        public int[,] GameStateMatrix { get; set; }
+        public bool PlayerTurnInformation { get; set; }
+        public int GameEndStatus { get; set; }
     }
 
     public class DaspBodyBuilder
@@ -81,7 +86,7 @@
             return this;
         }
 
-        public DaspBodyBuilder WithRooms(List<ChatRoom> rooms)
+        public DaspBodyBuilder WithRooms(List<ChatRoomInfo> rooms)
         {
             _daspBody.Rooms = rooms;
             return this;
@@ -96,6 +101,30 @@
         public DaspBodyBuilder WithStatus(string status)
         {
             _daspBody.Status = status;
+            return this;
+        }
+
+        public DaspBodyBuilder WithPocket(int pocket)
+        {
+            _daspBody.Pocket = pocket;
+            return this;
+        }
+
+        public DaspBodyBuilder WithGameStateMatrix(int[,] gameStateMatrix)
+        {
+            _daspBody.GameStateMatrix = gameStateMatrix;
+            return this;
+        }
+
+        public DaspBodyBuilder WithPlayerTurnInformation(bool playerTurnInformation)
+        {
+            _daspBody.PlayerTurnInformation = playerTurnInformation;
+            return this;
+        }
+
+        public DaspBodyBuilder WithGameEndStatus(int gameEndStatus)
+        {
+            _daspBody.GameEndStatus = gameEndStatus;
             return this;
         }
 

@@ -34,3 +34,15 @@ F:\Repos\mancala\dasp\obj\Debug\net6.0\dasp.dll
 F:\Repos\mancala\dasp\obj\Debug\net6.0\refint\dasp.dll
 F:\Repos\mancala\dasp\obj\Debug\net6.0\dasp.pdb
 F:\Repos\mancala\dasp\obj\Debug\net6.0\ref\dasp.dll
+C:\all\projects\sprc\mancala2\dasp\bin\Debug\net6.0\dasp.deps.json
+C:\all\projects\sprc\mancala2\dasp\bin\Debug\net6.0\dasp.dll
+C:\all\projects\sprc\mancala2\dasp\bin\Debug\net6.0\dasp.pdb
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.csproj.AssemblyReference.cache
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.GeneratedMSBuildEditorConfig.editorconfig
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.AssemblyInfoInputs.cache
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.AssemblyInfo.cs
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.csproj.CoreCompileInputs.cache
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.dll
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\refint\dasp.dll
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\dasp.pdb
+C:\all\projects\sprc\mancala2\dasp\obj\Debug\net6.0\ref\dasp.dll

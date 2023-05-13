@@ -1772,23 +1772,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\climd\\.nuget\\packages\\": {},
+    "C:\\Users\\grays\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repos\\mancala\\client\\client.csproj",
+      "projectUniqueName": "C:\\all\\projects\\sprc\\mancala2\\client\\client.csproj",
       "projectName": "client",
-      "projectPath": "F:\\Repos\\mancala\\client\\client.csproj",
-      "packagesPath": "C:\\Users\\climd\\.nuget\\packages\\",
-      "outputPath": "F:\\Repos\\mancala\\client\\obj\\",
+      "projectPath": "C:\\all\\projects\\sprc\\mancala2\\client\\client.csproj",
+      "packagesPath": "C:\\Users\\grays\\.nuget\\packages\\",
+      "outputPath": "C:\\all\\projects\\sprc\\mancala2\\client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\climd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\grays\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1803,8 +1803,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "F:\\Repos\\mancala\\dasp\\dasp.csproj": {
-              "projectPath": "F:\\Repos\\mancala\\dasp\\dasp.csproj"
+            "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj": {
+              "projectPath": "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj"
             }
           }
         }
@@ -1837,7 +1837,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

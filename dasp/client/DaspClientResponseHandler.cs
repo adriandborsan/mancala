@@ -8,6 +8,7 @@ namespace dasp
         private readonly Func<string, Task> _sendLog;
         public event RoomsUpdatedHandler RoomsUpdated;
         public event PlayersUpdatedHandler PlayersUpdated;
+        public event GameUpdatedHandler GameUpdated;
         public event AddMessageHandler AddMessage;
         private readonly Dictionary<string, Func<DaspRequest, DaspConnection, Task>> commandHandlers;
         public DaspClientResponseHandler(DaspClient client, Func<string, Task> sendLog)
@@ -23,9 +24,13 @@ namespace dasp
                 { DaspConstants.CREATE_ROOM, HandleCreateRoom },
                 { DaspConstants.LEAVE_ROOM, HandleLeaveRoom },
                 { DaspConstants.CHAT_UPDATED, HandleChatUpdated },
-                { DaspConstants.PLAYERS_UPDATED, HandlePlayersUpdated }
+                { DaspConstants.PLAYERS_UPDATED, HandlePlayersUpdated },
+                { DaspConstants.GAME_STATE_UPDATED, HandleGameUpdated }
             };
         }
+
+     
+
         public async Task HandleIncomingResponse(DaspRequest daspRequest, DaspConnection daspConnection)
         {
             try
@@ -105,6 +110,13 @@ namespace dasp
                 _sendLog($"create room failed because {daspRequest.DaspBody.Reason}");
             }
             _client.CreateRoomTcs.TrySetResult(createSuccess);
+        }
+
+
+        private async Task HandleGameUpdated(DaspRequest daspRequest, DaspConnection daspConnection)
+        {
+            DaspBody daspBody = daspRequest.DaspBody;
+            GameUpdated(daspBody.GameStateMatrix,daspBody.PlayerTurnInformation,daspBody.GameEndStatus);
         }
     }
 }
