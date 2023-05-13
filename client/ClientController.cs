@@ -139,5 +139,10 @@ namespace client
         {
             throw new NotImplementedException();
         }
+
+        internal void StartGame()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

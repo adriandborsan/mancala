@@ -30,15 +30,12 @@ namespace client
 
         public GameForm(ClientForm parentClientForm)
         {
+            InitializeComponent();
+
+            gameStatusLabel.Text = WAITING_FOR_GAME_TO_START;
             this.parentClientForm = parentClientForm;
             gameInProgress = false;
             myTurn = false;
-            gameStatusLabel.Text = WAITING_FOR_GAME_TO_START;
-
-            InitializeComponent();
-
-
-            GameStarted();
 
             initMancalaStonesMatrixWithDefaultGameState();
             updatePocketNumbers();
@@ -103,7 +100,7 @@ namespace client
             updatePocketNumbers();
         }
 
-        public void GameStarted()
+        public void GameStarted(string name)
         {
             gameInProgress = true;
             gameStatusLabel.Text = GAME_IN_PROGRESS;
