@@ -115,9 +115,9 @@ namespace client
             clientController.SendPressedPocket(sender);
         }
 
-        public void ReceiveGameState(int[,] sender, bool sender2)
+        public void ReceiveGameState(int[,] sender, bool sender2, int sender3)
         {
-            clientController.ReceiveGameState(sender, sender2);
+            clientController.ReceiveGameState(sender, sender2, sender3);
         }
     }
 }  

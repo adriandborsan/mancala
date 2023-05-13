@@ -88,6 +88,10 @@ namespace client
 
         public void ReceiveGameState(int[,] gameStateMatrix, bool playerTurnInformation, int gameEndStatus)
         {
+            // gameEndStatus = -1 for a game in progress
+            // gameEndStatus = 0 for a lost game
+            // gameEndStatus = 1 for a won game
+
             this.gameStateMatrix = gameStateMatrix;
             this.myTurn = playerTurnInformation;
 

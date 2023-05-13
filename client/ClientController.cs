@@ -135,7 +135,7 @@ namespace client
             throw new NotImplementedException();
         }
 
-        internal void ReceiveGameState(int[,] sender, bool sender2)
+        internal void ReceiveGameState(int[,] sender, bool sender2, int sender3)
         {
             throw new NotImplementedException();
         }
