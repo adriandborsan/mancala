@@ -122,6 +122,7 @@ namespace client
 
         public void ReceiveGameState(int[,] sender, bool sender2, int sender3)
         {
+            //trebuie facuta logica ca daca se temrina si win lose game inclusiv sa vada si spectatorii
             gameForm.ReceiveGameState(sender, sender2, sender3);
             if (sender3 != -1)
             {
@@ -137,6 +138,7 @@ namespace client
         public void GameStarted()
         {
             //name e al doile ajucator, si primul din userlistbox e primul jcuator sa stiie toti spectatorii
+            //spectatorii sa aiba mesaj custom in gamestarted cand apasa aiurea pe joc
             gameForm.GameStarted();
             startGameButton.Enabled = false;
         }

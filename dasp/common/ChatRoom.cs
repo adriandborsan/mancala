@@ -23,6 +23,8 @@
         internal void PocketMoved(int pocket)
         {
             gameStateUpdated(this);
+            //this retrieves the player that is currently moving
+           // daspConnections.FirstOrDefault(con => con.PlayerState == PlayerState.CURRENTLY_MOVING);
             throw new NotImplementedException();
         }
 
