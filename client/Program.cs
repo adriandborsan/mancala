@@ -11,9 +11,9 @@ namespace client
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ClientForm());
-            //new Thread(() => Application.Run(new ClientForm())).Start();
-            //new Thread(() => Application.Run(new ClientForm())).Start();
+            //Application.Run(new ClientForm());
+            new Thread(() => Application.Run(new ClientForm())).Start();
+            new Thread(() => Application.Run(new ClientForm())).Start();
             //new Thread(() => Application.Run(new ClientForm())).Start();
         }
     }

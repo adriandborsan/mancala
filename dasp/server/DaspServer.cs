@@ -55,7 +55,7 @@ namespace dasp
                         daspBodyBuilder
                             .WithGameStateMatrix(chatRoom.GameStateMatrix)
                             .WithGameEndStatus(-1)
-                            .WithPlayerTurnInformation(chatRoom.MoveInProgress&&true);
+                            .WithPlayerTurnInformation(!chatRoom.MoveInProgress);
                         break;
                     case PlayerState.WAITING_TO_MOVE:
                         daspBodyBuilder
@@ -184,6 +184,7 @@ namespace dasp
                 {
                     List<DaspConnection> members = chatRoom.daspConnections;
                     _connections.Remove(daspConnection);
+                    daspConnection.ChatRoom = chatRoom;
                     members.Add(daspConnection);
                     DaspRequest daspResponse = new(new DaspHeader(DaspConstants.JOIN_ROOM), new DaspBodyBuilder().WithStatus(DaspConstants.SUCCESS).Build());
                     daspConnection.Send(daspResponse);
@@ -208,9 +209,11 @@ namespace dasp
             {
                 daspConnection
             };
-            ChatRoom item = new ChatRoom(members, GameStateUpdated);
+            ChatRoom item = new ChatRoom(members, GameStateUpdated, _sendLog);
+            daspConnection.ChatRoom = item;
             _chatRooms.Add(item);
             _sendLog($"new room created with  {item.ID}");
+            UpdateUsersInChat(members);
 
             _connections.Remove(daspConnection);
             DaspRequest daspResponse = new(new DaspHeader(DaspConstants.CREATE_ROOM), new DaspBodyBuilder().WithStatus(DaspConstants.SUCCESS).Build());
@@ -246,6 +249,7 @@ namespace dasp
             {
                 List<DaspConnection> members = chatRoom.daspConnections;
                 _connections.Add(daspConnection);
+                daspConnection.ChatRoom = null;
                 members.Remove(daspConnection);
                 UpdateUsersInChat(members);
                 daspBody = new DaspBodyBuilder().WithStatus(DaspConstants.SUCCESS).Build();
@@ -288,7 +292,7 @@ namespace dasp
             else
             {
                 DaspBody daspBody = new DaspBodyBuilder().WithStatus(DaspConstants.ERROR).WithReason("Plyaerul nu poate trimite mesaj intr-o camera care nu exista????").Build();
-                DaspRequest daspResponse = new(new DaspHeader(DaspConstants.CREATE_ROOM), daspBody);
+                DaspRequest daspResponse = new(new DaspHeader(DaspConstants.CHAT_UPDATED), daspBody);
                 daspConnection.Send(daspResponse);
             }
         }

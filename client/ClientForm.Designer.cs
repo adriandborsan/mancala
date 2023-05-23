@@ -351,6 +351,10 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(700, 700);
             gamePanel.TabIndex = 0;
+            gameForm = new GameForm(this) { TopLevel = false };
+            gameForm.FormBorderStyle = FormBorderStyle.None;
+            gamePanel.Controls.Add(gameForm);
+            gameForm.Show();
             // 
             // sendMessageButton
             // 
@@ -470,7 +474,7 @@
         private Button sendMessageButton;
         private RichTextBox messageRichTextBox;
         private RichTextBox chatRichTextBox;
-        private Button startGameButton;
+        public Button startGameButton;
         private Button leaveButton;
         private BindingSource chatRoomBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;

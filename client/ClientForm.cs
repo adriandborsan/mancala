@@ -1,4 +1,6 @@
 using dasp;
+using System.Windows.Forms;
+
 namespace client
 {
     public partial class ClientForm : Form
@@ -141,6 +143,17 @@ namespace client
             //spectatorii sa aiba mesaj custom in gamestarted cand apasa aiurea pe joc
             gameForm.GameStarted();
             startGameButton.Enabled = false;
+        }
+        public void SetPlayerName(string playerName)
+        {
+            labelCurrentPlayer.Text = playerName;
+        }
+
+        private void logRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            // Scroll to the end of the text
+            logRichTextBox.SelectionStart = logRichTextBox.Text.Length;
+            logRichTextBox.ScrollToCaret();
         }
     }
 }

@@ -56,6 +56,7 @@ namespace client
         {
             if (await daspClient.Login(username, password))
             {
+                clientForm.RunOnUiThread(() => clientForm.SetPlayerName(username), _cancellationTokenSource.Token);
                 clientForm.RunOnUiThread(() => clientForm.SwitchToHome(), _cancellationTokenSource.Token);
                 SendLog("Login");
             }

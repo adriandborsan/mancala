@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\all\\projects\\sprc\\mancala2\\server\\server.csproj": {}
+    "F:\\Repos\\mancalaSPRC\\server\\server.csproj": {}
   },
   "projects": {
-    "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj": {
+    "F:\\Repos\\mancalaSPRC\\dasp\\dasp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj",
+        "projectUniqueName": "F:\\Repos\\mancalaSPRC\\dasp\\dasp.csproj",
         "projectName": "dasp",
-        "projectPath": "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj",
-        "packagesPath": "C:\\Users\\grays\\.nuget\\packages\\",
-        "outputPath": "C:\\all\\projects\\sprc\\mancala2\\dasp\\obj\\",
+        "projectPath": "F:\\Repos\\mancalaSPRC\\dasp\\dasp.csproj",
+        "packagesPath": "C:\\Users\\climd\\.nuget\\packages\\",
+        "outputPath": "F:\\Repos\\mancalaSPRC\\dasp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\grays\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\climd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -69,24 +69,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\all\\projects\\sprc\\mancala2\\server\\server.csproj": {
+    "F:\\Repos\\mancalaSPRC\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\all\\projects\\sprc\\mancala2\\server\\server.csproj",
+        "projectUniqueName": "F:\\Repos\\mancalaSPRC\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "C:\\all\\projects\\sprc\\mancala2\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\grays\\.nuget\\packages\\",
-        "outputPath": "C:\\all\\projects\\sprc\\mancala2\\server\\obj\\",
+        "projectPath": "F:\\Repos\\mancalaSPRC\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\climd\\.nuget\\packages\\",
+        "outputPath": "F:\\Repos\\mancalaSPRC\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\grays\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\climd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,8 +101,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj": {
-                "projectPath": "C:\\all\\projects\\sprc\\mancala2\\dasp\\dasp.csproj"
+              "F:\\Repos\\mancalaSPRC\\dasp\\dasp.csproj": {
+                "projectPath": "F:\\Repos\\mancalaSPRC\\dasp\\dasp.csproj"
               }
             }
           }
@@ -135,7 +135,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

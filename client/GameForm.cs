@@ -21,6 +21,9 @@ namespace client
 
         private bool myTurn;
         private bool gameInProgress;
+        private int playerNumber;
+
+        private int infoLabelUpdatedIndex = 0;
 
         private const string GAME_IN_PROGRESS = "Game in progress...";
         private const string WAITING_FOR_GAME_TO_START = "Waiting for game to start...";
@@ -32,13 +35,23 @@ namespace client
         {
             InitializeComponent();
 
-            gameStatusLabel.Text = WAITING_FOR_GAME_TO_START;
+            gameStatusLabel.Text = ".....";
             this.parentClientForm = parentClientForm;
             gameInProgress = false;
             myTurn = false;
 
-            initMancalaStonesMatrixWithDefaultGameState();
-            updatePocketNumbers();
+            if(parentClientForm.startGameButton.Visible == true)
+            {
+                // this client is player 1
+                playerNumber = 1;
+            }
+            else
+            {
+                // this client is player 2 (or spectator.. too bad!)
+                playerNumber = 2;
+            }
+
+            updateInfoLabels();
         }
 
         public void initMancalaStonesMatrixWithDefaultGameState()
@@ -52,20 +65,20 @@ namespace client
 
         public void updatePocketNumbers()
         {
-            player1Pocket1.Text = gameStateMatrix[0,0].ToString();
-            player1Pocket2.Text = gameStateMatrix[0, 1].ToString();
-            player1Pocket3.Text = gameStateMatrix[0, 2].ToString();
-            player1Pocket4.Text = gameStateMatrix[0, 3].ToString();
-            player1Pocket5.Text = gameStateMatrix[0, 4].ToString();
-            player1Pocket6.Text = gameStateMatrix[0, 5].ToString();
+            player2Pocket1.Text = gameStateMatrix[0,0].ToString();
+            player2Pocket2.Text = gameStateMatrix[0, 1].ToString();
+            player2Pocket3.Text = gameStateMatrix[0, 2].ToString();
+            player2Pocket4.Text = gameStateMatrix[0, 3].ToString();
+            player2Pocket5.Text = gameStateMatrix[0, 4].ToString();
+            player2Pocket6.Text = gameStateMatrix[0, 5].ToString();
             player1ScorePocket.Text = gameStateMatrix[0, 6].ToString();
 
-            player2Pocket1.Text = gameStateMatrix[1, 0].ToString();
-            player2Pocket2.Text = gameStateMatrix[1, 1].ToString();
-            player2Pocket3.Text = gameStateMatrix[1, 2].ToString();
-            player2Pocket4.Text = gameStateMatrix[1, 3].ToString();
-            player2Pocket5.Text = gameStateMatrix[1, 4].ToString();
-            player2Pocket6.Text = gameStateMatrix[1, 5].ToString();
+            player1Pocket1.Text = gameStateMatrix[1, 0].ToString();
+            player1Pocket2.Text = gameStateMatrix[1, 1].ToString();
+            player1Pocket3.Text = gameStateMatrix[1, 2].ToString();
+            player1Pocket4.Text = gameStateMatrix[1, 3].ToString();
+            player1Pocket5.Text = gameStateMatrix[1, 4].ToString();
+            player1Pocket6.Text = gameStateMatrix[1, 5].ToString();
             player2ScorePocket.Text = gameStateMatrix[1, 6].ToString();
         }
 
@@ -89,6 +102,16 @@ namespace client
             // gameEndStatus = 0 for a lost game
             // gameEndStatus = 1 for a won game
 
+            gameStatusLabel.Text = "ReceivedGameState, playerTurnInfo = " + playerTurnInformation.ToString() + ", gameEndStatus = " + gameEndStatus.ToString();
+
+            if (gameEndStatus == -1)
+            {
+                this.gameInProgress = true;
+            }
+            else
+            {
+                this.gameInProgress = false;
+            }
             this.gameStateMatrix = gameStateMatrix;
             this.myTurn = playerTurnInformation;
 
@@ -97,6 +120,7 @@ namespace client
                 GameFinished(gameEndStatus);
             }
 
+            updateInfoLabels();
             updatePocketNumbers();
         }
 
@@ -168,8 +192,17 @@ namespace client
 
         public void GameStarted()
         {
+            infoLabel3.Text = "Game started called!";
             gameInProgress = true;
-            gameStatusLabel.Text = GAME_IN_PROGRESS;
+        }
+
+        public void updateInfoLabels()
+        {
+            infoLabel1.Text = "Game in progress: " + gameInProgress;
+            infoLabel2.Text = "My Turn: " + myTurn;
+
+            infoLabel4.Text = "Updated Index: " + infoLabelUpdatedIndex;
+            infoLabelUpdatedIndex++;
         }
 
     }
