@@ -40,17 +40,6 @@ namespace client
             gameInProgress = false;
             myTurn = false;
 
-            if(parentClientForm.startGameButton.Visible == true)
-            {
-                // this client is player 1
-                playerNumber = 1;
-            }
-            else
-            {
-                // this client is player 2 (or spectator.. too bad!)
-                playerNumber = 2;
-            }
-
             updateInfoLabels();
         }
 
@@ -65,20 +54,20 @@ namespace client
 
         public void updatePocketNumbers()
         {
-            player2Pocket1.Text = gameStateMatrix[0,0].ToString();
-            player2Pocket2.Text = gameStateMatrix[0, 1].ToString();
-            player2Pocket3.Text = gameStateMatrix[0, 2].ToString();
-            player2Pocket4.Text = gameStateMatrix[0, 3].ToString();
-            player2Pocket5.Text = gameStateMatrix[0, 4].ToString();
-            player2Pocket6.Text = gameStateMatrix[0, 5].ToString();
+            player1Pocket1.Text = gameStateMatrix[0,0].ToString();
+            player1Pocket2.Text = gameStateMatrix[0, 1].ToString();
+            player1Pocket3.Text = gameStateMatrix[0, 2].ToString();
+            player1Pocket4.Text = gameStateMatrix[0, 3].ToString();
+            player1Pocket5.Text = gameStateMatrix[0, 4].ToString();
+            player1Pocket6.Text = gameStateMatrix[0, 5].ToString();
             player1ScorePocket.Text = gameStateMatrix[0, 6].ToString();
 
-            player1Pocket1.Text = gameStateMatrix[1, 0].ToString();
-            player1Pocket2.Text = gameStateMatrix[1, 1].ToString();
-            player1Pocket3.Text = gameStateMatrix[1, 2].ToString();
-            player1Pocket4.Text = gameStateMatrix[1, 3].ToString();
-            player1Pocket5.Text = gameStateMatrix[1, 4].ToString();
-            player1Pocket6.Text = gameStateMatrix[1, 5].ToString();
+            player2Pocket1.Text = gameStateMatrix[1, 0].ToString();
+            player2Pocket2.Text = gameStateMatrix[1, 1].ToString();
+            player2Pocket3.Text = gameStateMatrix[1, 2].ToString();
+            player2Pocket4.Text = gameStateMatrix[1, 3].ToString();
+            player2Pocket5.Text = gameStateMatrix[1, 4].ToString();
+            player2Pocket6.Text = gameStateMatrix[1, 5].ToString();
             player2ScorePocket.Text = gameStateMatrix[1, 6].ToString();
         }
 
@@ -124,37 +113,6 @@ namespace client
             updatePocketNumbers();
         }
 
-     
-        private void player1Pocket1_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(0);
-        }
-
-        private void player1Pocket2_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(1);
-        }
-
-        private void player1Pocket3_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(2);
-        }
-
-        private void player1Pocket4_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(3);
-        }
-
-        private void player1Pocket5_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(4);
-        }
-
-        private void player1Pocket6_Click(object sender, EventArgs e)
-        {
-            SendPressedPocket(5);
-        }
-
         public void InformPlayer(string value)
         {
             if (InvokeRequired)
@@ -192,7 +150,17 @@ namespace client
 
         public void GameStarted()
         {
-            infoLabel3.Text = "Game started called!";
+            if (parentClientForm.startGameButton.Visible == true)
+            {
+                // this client is player 1
+                playerNumber = 1;
+            }
+            else
+            {
+                // this client is player 2 (or spectator.. too bad!)
+                playerNumber = 2;
+            }
+            infoLabel3.Text = "Client is player " + playerNumber;
             gameInProgress = true;
         }
 
@@ -205,5 +173,76 @@ namespace client
             infoLabelUpdatedIndex++;
         }
 
+        private void player1Pocket1_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(0);
+        }
+
+        private void player1Pocket2_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(1);
+        }
+
+        private void player1Pocket3_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(2);
+        }
+
+        private void player1Pocket4_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(3);
+        }
+
+        private void player1Pocket5_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(4);
+        }
+
+        private void player1Pocket6_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 1)
+                SendPressedPocket(5);
+        }
+
+        private void player2Pocket1_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(0);
+        }
+
+        private void player2Pocket2_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(1);
+        }
+
+        private void player2Pocket3_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(2);
+        }
+
+        private void player2Pocket4_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(3);
+        }
+
+        private void player2Pocket5_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(4);
+        }
+
+        private void player2Pocket6_Click(object sender, EventArgs e)
+        {
+            if (playerNumber == 2)
+                SendPressedPocket(5);
+        }
     }
 }

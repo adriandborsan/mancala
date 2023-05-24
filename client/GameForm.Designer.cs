@@ -40,8 +40,8 @@
             this.player1Pocket3 = new System.Windows.Forms.Label();
             this.player1Pocket2 = new System.Windows.Forms.Label();
             this.player1Pocket1 = new System.Windows.Forms.Label();
-            this.player1ScorePocket = new System.Windows.Forms.Label();
             this.player2ScorePocket = new System.Windows.Forms.Label();
+            this.player1ScorePocket = new System.Windows.Forms.Label();
             this.gameStatusLabel = new System.Windows.Forms.Label();
             this.infoLabel1 = new System.Windows.Forms.Label();
             this.infoLabel2 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.player2Pocket1.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket1.TabIndex = 0;
             this.player2Pocket1.Text = "0";
-            this.player2Pocket1.Click += new System.EventHandler(this.player1Pocket1_Click);
+            this.player2Pocket1.Click += new System.EventHandler(this.player2Pocket1_Click);
             // 
             // player2Pocket2
             // 
@@ -69,7 +69,7 @@
             this.player2Pocket2.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket2.TabIndex = 1;
             this.player2Pocket2.Text = "0";
-            this.player2Pocket2.Click += new System.EventHandler(this.player1Pocket2_Click);
+            this.player2Pocket2.Click += new System.EventHandler(this.player2Pocket2_Click);
             // 
             // player2Pocket3
             // 
@@ -80,7 +80,7 @@
             this.player2Pocket3.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket3.TabIndex = 2;
             this.player2Pocket3.Text = "0";
-            this.player2Pocket3.Click += new System.EventHandler(this.player1Pocket3_Click);
+            this.player2Pocket3.Click += new System.EventHandler(this.player2Pocket3_Click);
             // 
             // player2Pocket4
             // 
@@ -91,7 +91,7 @@
             this.player2Pocket4.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket4.TabIndex = 3;
             this.player2Pocket4.Text = "0";
-            this.player2Pocket4.Click += new System.EventHandler(this.player1Pocket4_Click);
+            this.player2Pocket4.Click += new System.EventHandler(this.player2Pocket4_Click);
             // 
             // player2Pocket5
             // 
@@ -102,7 +102,7 @@
             this.player2Pocket5.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket5.TabIndex = 4;
             this.player2Pocket5.Text = "0";
-            this.player2Pocket5.Click += new System.EventHandler(this.player1Pocket5_Click);
+            this.player2Pocket5.Click += new System.EventHandler(this.player2Pocket5_Click);
             // 
             // player2Pocket6
             // 
@@ -113,7 +113,7 @@
             this.player2Pocket6.Size = new System.Drawing.Size(72, 79);
             this.player2Pocket6.TabIndex = 5;
             this.player2Pocket6.Text = "0";
-            this.player2Pocket6.Click += new System.EventHandler(this.player1Pocket6_Click);
+            this.player2Pocket6.Click += new System.EventHandler(this.player2Pocket6_Click);
             // 
             // player1Pocket6
             // 
@@ -124,6 +124,7 @@
             this.player1Pocket6.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket6.TabIndex = 11;
             this.player1Pocket6.Text = "0";
+            this.player1Pocket6.Click += new System.EventHandler(this.player1Pocket6_Click);
             // 
             // player1Pocket5
             // 
@@ -134,6 +135,7 @@
             this.player1Pocket5.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket5.TabIndex = 10;
             this.player1Pocket5.Text = "0";
+            this.player1Pocket5.Click += new System.EventHandler(this.player1Pocket5_Click);
             // 
             // player1Pocket4
             // 
@@ -144,6 +146,7 @@
             this.player1Pocket4.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket4.TabIndex = 9;
             this.player1Pocket4.Text = "0";
+            this.player1Pocket4.Click += new System.EventHandler(this.player1Pocket4_Click);
             // 
             // player1Pocket3
             // 
@@ -154,6 +157,7 @@
             this.player1Pocket3.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket3.TabIndex = 8;
             this.player1Pocket3.Text = "0";
+            this.player1Pocket3.Click += new System.EventHandler(this.player1Pocket3_Click);
             // 
             // player1Pocket2
             // 
@@ -164,6 +168,7 @@
             this.player1Pocket2.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket2.TabIndex = 7;
             this.player1Pocket2.Text = "0";
+            this.player1Pocket2.Click += new System.EventHandler(this.player1Pocket2_Click);
             // 
             // player1Pocket1
             // 
@@ -174,26 +179,27 @@
             this.player1Pocket1.Size = new System.Drawing.Size(72, 79);
             this.player1Pocket1.TabIndex = 6;
             this.player1Pocket1.Text = "0";
-            // 
-            // player1ScorePocket
-            // 
-            this.player1ScorePocket.AutoSize = true;
-            this.player1ScorePocket.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.player1ScorePocket.Location = new System.Drawing.Point(587, 309);
-            this.player1ScorePocket.Name = "player1ScorePocket";
-            this.player1ScorePocket.Size = new System.Drawing.Size(72, 79);
-            this.player1ScorePocket.TabIndex = 12;
-            this.player1ScorePocket.Text = "0";
+            this.player1Pocket1.Click += new System.EventHandler(this.player1Pocket1_Click);
             // 
             // player2ScorePocket
             // 
             this.player2ScorePocket.AutoSize = true;
             this.player2ScorePocket.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.player2ScorePocket.Location = new System.Drawing.Point(31, 309);
+            this.player2ScorePocket.Location = new System.Drawing.Point(587, 309);
             this.player2ScorePocket.Name = "player2ScorePocket";
             this.player2ScorePocket.Size = new System.Drawing.Size(72, 79);
-            this.player2ScorePocket.TabIndex = 13;
+            this.player2ScorePocket.TabIndex = 12;
             this.player2ScorePocket.Text = "0";
+            // 
+            // player1ScorePocket
+            // 
+            this.player1ScorePocket.AutoSize = true;
+            this.player1ScorePocket.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.player1ScorePocket.Location = new System.Drawing.Point(31, 309);
+            this.player1ScorePocket.Name = "player1ScorePocket";
+            this.player1ScorePocket.Size = new System.Drawing.Size(72, 79);
+            this.player1ScorePocket.TabIndex = 13;
+            this.player1ScorePocket.Text = "0";
             // 
             // gameStatusLabel
             // 
@@ -265,8 +271,8 @@
             this.Controls.Add(this.infoLabel2);
             this.Controls.Add(this.infoLabel1);
             this.Controls.Add(this.gameStatusLabel);
-            this.Controls.Add(this.player2ScorePocket);
             this.Controls.Add(this.player1ScorePocket);
+            this.Controls.Add(this.player2ScorePocket);
             this.Controls.Add(this.player1Pocket6);
             this.Controls.Add(this.player1Pocket5);
             this.Controls.Add(this.player1Pocket4);
@@ -300,8 +306,8 @@
         private Label player1Pocket3;
         private Label player1Pocket2;
         private Label player1Pocket1;
-        private Label player1ScorePocket;
         private Label player2ScorePocket;
+        private Label player1ScorePocket;
         private Label gameStatusLabel;
         private Label infoLabel1;
         private Label infoLabel2;
