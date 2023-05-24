@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dasp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,7 @@ namespace client
         private const string WAITING_FOR_GAME_TO_START = "Waiting for game to start...";
         private const string GAME_WON = "GAME WON!";
         private const string GAME_LOST = "GAME LOST...";
+        private const string GAME_DRAW = "THe game ended in a draw...";
         private const string NOT_YOUR_TURN = "Not your turn...";
 
         public GameForm(ClientForm parentClientForm)
@@ -88,10 +90,7 @@ namespace client
         public void ReceiveGameState(int[,] gameStateMatrix, bool playerTurnInformation, int gameEndStatus)
         {
             // gameEndStatus = -1 for a game in progress
-            // gameEndStatus = 0 for a lost game
-            // gameEndStatus = 1 for a won game
-
-            gameStatusLabel.Text = "ReceivedGameState, playerTurnInfo = " + playerTurnInformation.ToString() + ", gameEndStatus = " + gameEndStatus.ToString();
+            // gameEndStatus = 1 for a game that ended
 
             if (gameEndStatus == -1)
             {
@@ -111,26 +110,82 @@ namespace client
 
             updateInfoLabels();
             updatePocketNumbers();
+            checkForGameEnded();
+        }
+
+        private void checkForGameEnded()
+        {
+            if (
+                (gameStateMatrix[0, 0] == 0 &&
+                gameStateMatrix[0, 1] == 0 &&
+                gameStateMatrix[0, 2] == 0 &&
+                gameStateMatrix[0, 3] == 0 &&
+                gameStateMatrix[0, 4] == 0 &&
+                gameStateMatrix[0, 5] == 0) ||
+                (gameStateMatrix[1, 0] == 0 &&
+                gameStateMatrix[1, 1] == 0 &&
+                gameStateMatrix[1, 2] == 0 &&
+                gameStateMatrix[1, 3] == 0 &&
+                gameStateMatrix[1, 4] == 0 &&
+                gameStateMatrix[1, 5] == 0))
+            {
+                // if im player 1 and my score is higher
+                if (playerNumber == 1 && (gameStateMatrix[0,6] > gameStateMatrix[1,6]))
+                {
+                    gameStatusLabel.Text = GAME_WON;
+                }
+                // else if im player 1 and my score is lower
+                else if (playerNumber == 1 && (gameStateMatrix[0, 6] < gameStateMatrix[1, 6]))
+                {
+                    gameStatusLabel.Text = GAME_LOST;
+                }
+                // ekse if im player 1 and my score is even
+                else if (playerNumber == 1 && (gameStateMatrix[0, 6] == gameStateMatrix[1, 6]))
+                {
+                    gameStatusLabel.Text = GAME_DRAW;
+                }
+
+                // if im player 2 and my score is higher
+                if (playerNumber == 2 && (gameStateMatrix[1, 6] > gameStateMatrix[0, 6]))
+                {
+                    gameStatusLabel.Text = GAME_WON;
+                }
+                // else if im player 2 and my score is lower
+                else if (playerNumber == 2 && (gameStateMatrix[1, 6] < gameStateMatrix[0, 6]))
+                {
+                    gameStatusLabel.Text = GAME_LOST;
+                }
+                // ekse if im player 2 and my score is even
+                else if (playerNumber == 2 && (gameStateMatrix[1, 6] == gameStateMatrix[0, 6]))
+                {
+                    gameStatusLabel.Text = GAME_DRAW;
+                }
+                gameInProgress = false;
+                updateInfoLabels();
+            }
         }
 
         public void InformPlayer(string value)
         {
-            if (InvokeRequired)
+            if (gameInProgress)
             {
-                this.Invoke(new Action<string>(InformPlayer), new object[] { value });
-                return;
-            }
-            gameStatusLabel.Text = value;
-
-            if (!value.Equals("..."))
-            {
-                System.Timers.Timer timer =
-                                        new System.Timers.Timer(1000) { Enabled = true };
-                timer.Elapsed += (sender, args) =>
+                if (InvokeRequired)
                 {
-                    this.InformPlayer("...");
-                    timer.Dispose();
-                };
+                    this.Invoke(new Action<string>(InformPlayer), new object[] { value });
+                    return;
+                }
+                gameStatusLabel.Text = value;
+
+                if (!value.Equals("..."))
+                {
+                    System.Timers.Timer timer =
+                                            new System.Timers.Timer(1000) { Enabled = true };
+                    timer.Elapsed += (sender, args) =>
+                    {
+                        this.InformPlayer("...");
+                        timer.Dispose();
+                    };
+                }
             }
         }
 

@@ -112,8 +112,6 @@
             {
                 playerThatIsMoving.PlayerState = PlayerState.WAITING_TO_MOVE;
                 playerThatIsWaitingToMove.PlayerState = PlayerState.WAITING_TO_MOVE;
-
-                // TODO: tell the clients the game is over and let them know who won
             }
 
             gameStateUpdated(this);

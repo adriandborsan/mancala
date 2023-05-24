@@ -224,6 +224,7 @@
             this.infoLabel1.TabIndex = 15;
             this.infoLabel1.Text = "INFO 1";
             this.infoLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoLabel1.Visible = false;
             // 
             // infoLabel2
             // 
@@ -248,6 +249,7 @@
             this.infoLabel3.TabIndex = 17;
             this.infoLabel3.Text = "INFO 3";
             this.infoLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoLabel3.Visible = false;
             // 
             // infoLabel4
             // 
@@ -260,6 +262,7 @@
             this.infoLabel4.TabIndex = 18;
             this.infoLabel4.Text = "INFO 4";
             this.infoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoLabel4.Visible = false;
             // 
             // GameForm
             // 
